@@ -149,7 +149,7 @@ $(function() {
         var isload = false;
         var ajax = function ajax(input, filter, type, page) {
           $.ajax({
-            type: 'POST',
+            type: 'get',
             url: getUrl(),
             timeout: 30000,
             data: {
@@ -159,6 +159,8 @@ $(function() {
               page: page
             },
             dataType: 'json',
+            jsonp: "cb",
+            jsonpCallback:"callback",
             beforeSend: function beforeSend() {
               isload = true;
               var title = document.title;
